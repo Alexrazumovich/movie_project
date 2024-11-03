@@ -1,0 +1,26 @@
+{% extends 'films/layoute.html' %}
+
+{% block title %}
+	<title>Фильмы</title>
+{% endblock %}
+
+{% block content %}
+<h1>Список фильмов</h1>
+	{% if films %}
+		{% for film in films %}
+			<div class="card">
+				<div class="card" style="width: 30rem;">
+					<div class="card-body">
+						<h5 class="card-title">{{ film.title }}</h5>
+						<p class="card-text">{{ film.short_description }} </p>
+						<a class="btn btn-primary" href="#">Подробнее</a>
+
+					</div>
+				</div>
+			</div>
+		{% endfor %}
+	{% else %}
+		<h4>Список фильмов пока пустой.</h4>
+	{% endif %}
+
+{% endblock %}

@@ -1,0 +1,46 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="{% static 'css/films.css' %}">
+
+    {% block title %}
+    {% endblock %}
+</head>
+<body>
+{% include 'films/header.html' %}
+<div class="container-fluid">
+    <div class="row">
+        <aside class="col-md-3 col-lg-2 bg-light sidebar py-3">
+            <div class="text-center mb-4">
+                <img src="{% static 'img/films_r.jpg' %}" alt="коллаж" class="img-fluid rounded-circle mb-2" width="150">
+                <h4 class="font-weight-bold">Фильмы Рязанова</h4>
+            </div>
+            <ul class="nav flex-column">
+
+                <li class="nav-item">
+                    <a class="nav-link active" href="{% url 'films_home' %}">Фильмы</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link active" href="{% url 'add_films' %}">Добавить фильм</a>
+                </li>
+
+            </ul>
+        </aside>
+
+        <main class="col-md-9 col-lg-10 px-4">
+            {% block content %}
+            {% endblock %}
+        </main>
+    </div>
+</div>
+{% include 'films/footer.html' %}
+<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.3/dist/umd/popper.min.js"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</body>
+</html>
